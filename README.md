@@ -1,38 +1,12 @@
-Rails[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
-
-# rails-api-template
-
-A template for starting projects with `rails-api`. Includes authentication.
-
-At the beginning of each cohort, update the versions in [`Gemfile`](Gemfile).
-
-## Prerequisites
-
--   [rails-api-examples-walkthrough](https://git.generalassemb.ly/ga-wdi-boston/rails-api-examples-walkthrough)
-
-## Dependencies
-
-Install with `bundle install`.
-
--   [`rails-api`](https://github.com/rails-api/rails-api)
--   [`rails`](https://github.com/rails/rails)
--   [`active_model_serializers`](https://github.com/rails-api/active_model_serializers)
--   [`ruby`](https://www.ruby-lang.org/en/)
--   [`postgres`](http://www.postgresql.org)
-
-## Installation
-
-### Download Template:
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory (`unzip ~/Downloads/rails-api-template-master.zip`)
-1.  Move into the new project and `git init`.
-
-### Customize Template:
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Rename your app module in `config/application.rb` (change
-    `RailsApiTemplate`).
-1.  Rename your project database in `config/database.yml` (change
-    `'rails-api-template'`).
+User Stories:
+1.) As a user, I want to be able to log an encounter with a paranormal entity.
+2.) As a user, I want to be able to edit an encounter with a paranormal entity.
+3.) As a user, I want to be able to delete an encounter with a paranormal entity.
+4.) As a user, I want to be able to see all my encounters with paranormal entities.
+5.) As a user, I want to be able to get an encounter by a location.
+6.) As a user, I want to be able to get a ghost by it's name.
+7.) As a user, I want the website to visually appealing and easy to navigate.
+8.) As a user, I want to know the difference between paranormal entities before I log them. 
 
 ### Setup Environment:
 1.  Install dependencies with `bundle install`.
@@ -220,7 +194,7 @@ Response:
 HTTP/1.1 204 No Content
 ```
 
-### Keeping your database up to date 
+### Keeping your database up to date
 
 Remember, creating and applying [migrations](https://edgeguides.rubyonrails.org/active_record_migrations.html#creating-a-migration) are two different things. After you create a migration (one of those files that lives in `db/migrate/`), you need to apply it to each database using `bin/rails db:migrate` (local) or `heroku run rails db:migrate` (production).
 

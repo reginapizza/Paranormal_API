@@ -1,0 +1,11 @@
+SIGN-UP:
+EMAIL=regina@1 PASSWORD=1 sh curl-scripts/auth/sign-up.sh
+
+SIGN-IN:
+EMAIL=regina@1 PASSWORD=1 sh curl-scripts/auth/sign-in.sh
+
+CHANGE PASSWORD:
+TOKEN="" OLDPW=1 NEWPW=2 sh curl-scripts/auth/change-password.sh
+
+SIGN-OUT:
+TOKEN="" sh curl-scripts/auth/change-password.sh

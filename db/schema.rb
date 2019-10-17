@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 2019_10_17_173400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "encounters", force: :cascade do |t|
+    t.date "date_of_encounter"
+    t.time "time_of_encounter"
+    t.string "location"
+    t.string "weather"
+    t.integer "number_of_people"
+    t.string "wearing"
+    t.string "entity_type"
+    t.string "entity_name"
+    t.string "disposition"
+    t.text "appearance"
+    t.text "encounter_description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_encounters_on_user_id"
+  end
 
   create_table "examples", force: :cascade do |t|
     t.text "text", null: false
@@ -33,5 +51,6 @@ ActiveRecord::Schema.define(version: 2) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  add_foreign_key "encounters", "users"
   add_foreign_key "examples", "users"
 end

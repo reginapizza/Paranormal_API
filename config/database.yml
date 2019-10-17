@@ -1,4 +1,4 @@
-<% project_name = 'Poke_API' %>
+<% project_name = 'paranormal_API' %>
 
 default: &default
   adapter: postgresql
