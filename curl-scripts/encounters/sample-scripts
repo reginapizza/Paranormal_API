@@ -1,8 +1,14 @@
 CREATE:
-TOKEN="" DATE_OF_ENCOUNTER="2019/10/31" TIME_OF_ENCOUNTER="03:00:00" LOCATION="Freetown Fall-River State Forest" WEATHER="cloudy" PEOPLE=2 WEARING="Red" ENTITY_TYPE="Apparition" ENTITY_NAME="Barnabus" DISPOSITION="Mean" APPEARANCE="Colonial war garb" ENCOUNTER_DESCRIPTION="Apparition chased me" sh curl-scripts/encounters/create.sh
+TOKEN="" DATE="2019/10/31" TIME="03:33:33" LOCATION="woods" WEATHER="sunny" PEOPLE=3 WEARING="all black" ENTITYTYPE="cryptid" ENTITYNAME="pukwudgie" DISPOSITION="friendly" APPEARANCE="small and troll-like" EVENT="peered out from behind tree then ran away" sh curl-scripts/encounters/create.sh
+
+INDEX (ALL):
+TOKEN="" sh curl-scripts/encounters/index.sh
+
+SHOW (ONE):
+ID= TOKEN="" sh curl-scripts/encounters/show.sh
 
 UPDATE:
-TOKEN="" DATE="11/1/2019" LOCATION="Freetown Fall-River State Forest" PEOPLE="2" WEARING="Red shirt and blue pants" WEATHER="cloudy" ENTITY="Apparition" NAME="Barnabus" DISPOSITION="Mean" APPEARANCE="Colonial war garb" EVENT="Apparition chased me" sh curl-scripts/encounters/update.sh
+ID= TOKEN="" DATE="2017/10/31" TIME="03:33:33" LOCATION="woods" WEATHER="sunny" PEOPLE=3 WEARING="all black" ENTITYTYPE="cryptid" ENTITYNAME="pukwudgie" DISPOSITION="friendly" APPEARANCE="small and troll-like" EVENT="peered out from behind tree then ran away" sh curl-scripts/encounters/update.sh
 
 DELETE:
-sh curl-scripts/encounters/delete.sh ??
+ ID= TOKEN="" sh curl-scripts/encounters/delete.sh

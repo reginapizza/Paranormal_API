@@ -6,12 +6,12 @@ curl "http://localhost:4741/encounters/${ID}" \
 --data '{
   "encounter": {
     "date_of_encounter": "'"${DATE}"'",
-    "time_of_encounter": "'"${TIME}"'"
+    "time_of_encounter": "'"${TIME}"'",
     "location": "'"${LOCATION}"'",
     "weather": "'"${WEATHER}"'",
     "number_of_people": "'"${PEOPLE}"'",
     "wearing": "'"${WEARING}"'",
-    "entity_type": "'"${ENTITY}"'",
+    "entity_type": "'"${ENTITYTYPE}"'",
     "entity_name": "'"${ENTITYNAME}"'",
     "disposition": "'"${DISPOSITION}"'",
     "appearance": "'"${APPEARANCE}"'",

@@ -17,7 +17,7 @@ class EncountersController < ProtectedController
 
   # POST /encounters
   def create
-    @encounter = current_user.examples.build(encounter_params)
+    @encounter = current_user.encounters.build(encounter_params)
 
     if @encounter.save
       render json: @encounter, status: :created, location: @encounter
