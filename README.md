@@ -1,230 +1,57 @@
-User Stories:
-1.) As a user, I want to be able to log an encounter with a paranormal entity.
-2.) As a user, I want to be able to edit an encounter with a paranormal entity.
-3.) As a user, I want to be able to delete an encounter with a paranormal entity.
-4.) As a user, I want to be able to see all my encounters with paranormal entities.
-5.) As a user, I want to be able to get an encounter by a location.
-6.) As a user, I want to be able to get a ghost by it's name.
-7.) As a user, I want the website to visually appealing and easy to navigate.
-8.) As a user, I want to know the difference between paranormal entities before I log them. 
+## **Paranormal Encounters Application- API**.
+------------------------------------------------------
 
-### Setup Environment:
-1.  Install dependencies with `bundle install`.
-1.  `git add` and `git commit` your changes.
-1.  Create a `.env` for sensitive settings (`touch .env`).
-1.  Generate new `development` and `test` secrets (`bundle exec rails secret`).
-1.  Store them in `.env` with keys `SECRET_KEY_BASE_<DEVELOPMENT|TEST>`
-    respectively.
-1.  In order to make requests to your deployed API, you will need to set
-    `SECRET_KEY_BASE` in the environment of the production API (for example, using `heroku config:set` or the Heroku dashboard).
-1.  In order to make requests from your deployed client application, you will
-    need to set `CLIENT_ORIGIN` in the environment of the production API (for example, `heroku config:set CLIENT_ORIGIN=https://<github-username>.github.io`).
-    See more about deploying to heroku [rails-heroku-setup-guide](https://git.generalassemb.ly/ga-wdi-boston/rails-heroku-setup-guide)
+**This is an API for an application that allows users to log a paranormal
+encounter where they that will keep track of multiple important aspects of said
+encounter. I created this project as part of General Assembly's Software
+Engineering Immersive Program. Whether you want to have a paranormal encounter
+or not, I hope you have fun making some up or reading through other's!**
 
-### Setup your database:
-    - bin/rails db:drop (if it already exists)
-    - bin/rails db:create
-    - bin/rails db:migrate
-    - bin/rails db:seed
-    - bin/rails db:examples
+### **Important Links**:
 
-  **Note**: Do this for each database you want to set up. Your local database and production (Heroku) database will both need to be set up in this way!
+* [My SPA hosted on Github Pages](https://reginapizza.github.io/paranormal_encounters_app/)
+* [My client repository on Github](https://github.com/reginapizza/paranormal_encounters_app)
+* [My API repository on Github](https://github.com/reginapizza/Paranormal_API)
+* [My API hosted on Heroku](https://sheltered-lowlands-54306.herokuapp.com/)
 
+### **Technologies Used:**
+* Ruby
+* Ruby on Rails
 
-### Run your server!
-1. Run the API server with `bin/rails server` or `bundle exec rails server`.
+### **User Stories:**
 
-## Structure
+1. As a user, I want to be able to log an encounter with a paranormal entity.
 
-This template follows the standard [project structure](https://gist.git.generalassemb.ly/danman01/64472678e25552412050c237ced48964) in Rails.
+2. As a user, I want to be able to edit an encounter with a paranormal entity.
 
-`curl` command scripts are stored in [`curl-scripts`](curl-scripts) with names that
-correspond to API actions.
+3. As a user, I want to be able to delete an encounter with a paranormal entity.
 
-User authentication is built-in.
+4. As a user, I want to be able to see all my encounters with paranormal entities.
 
-Tests (also called specs) are located in the `spec` folder.
+5. As a user, I want to be able to get an encounter by a data point (location, ghost name, date, weather)
 
-## Tasks
+7. As a user, I want the website to visually appealing and easy to navigate.
 
-Developers should run these often!
+8. As a user, I want to know the difference between paranormal entities before I log them.
 
--   `bin/rails routes` lists the endpoints available in your API.
--   `bin/rspec spec` runs automated tests located in the `spec` folder.
--   `bin/rails console` opens a REPL that pre-loads the API.
--   `bin/rails db` opens your database client and loads the correct database.
--   `bin/rails server` starts the API.
--   `curl-scripts/*.sh` run various `curl` commands to test the API. See below.
+9. As a user, I want to be able to sign up, sign-in, change password, and sign out.
 
-## API
+### **Planning Story:**
 
-Use this as the basis for your own API documentation. Add a new third-level
-heading for your custom entities, and follow the pattern provided for the
-built-in user authentication documentation.
+When creating this API, I knew I wanted my database to hold a user and that user's encounters. Originally, I had planned for encounters to consist of multiple kinds of entities that would each have their own table, but as I began thinking about what attributes I would want a user to fill out about those entities, I realized that most of their attributes would be pretty much the same. For that reason, I decided to have entities just be one big table with 11 different columns. I started by making my table: users had many encounters and encounters belonged to a user. I tested my crud actions with curl scripts and everything went moderately well, despite my curl scripts taking forever to write because I had to fill in 11 different key and value pairs, and having to do that multiple times since I often had typos. (In my curl scripts files you will find files with sample scripts so that I only had to copy and paste the format and then I only had to change the values.) After changing my controllers around and playing around with validations, I was pretty much done and working on front end of the project (see link above for deployed site).
 
-Scripts are included in [`curl-scripts`](curl-scripts) to test built-in actions. Add your
-own scripts to test your custom API. As an alternative, you can write automated
-tests in RSpec to test your API.
+### **Problems I Ran in to:**
 
-### Authentication Endpoints and Curl Scripts
+When I was creating my table in my database, I decided to separate ```time``` and ```date``` instead of doing ```dateTime``` because I wanted the date to be validated, but I wanted the user to be able to choose whether or not they wanted to put in a time (in case they didn't know the time something happened). Because I was putting in the data type as time, it was also displaying with a date when the user submitted data (the date would always be 2000-01-01), so I had to include javascript in my frontend code that would change it to an acceptable format, and would loop through the data for getting all the encounters to change each date on the page to an acceptable format. I grappled with the option of changing my column's data type to a string, or to get rid of ```date``` and ```time``` columns to change them to ```dateTime```, but in the end I decided to keep it as it was and just fix it on the frontend because I thought the structure for what I was trying to do was the right way to store it.
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| POST   | `/sign-up`             | `users#signup`    |
-| POST   | `/sign-in`             | `users#signin`    |
-| PATCH  | `/change-password`     | `users#changepw`  |
-| DELETE | `/sign-out`        | `users#signout`   |
+I also originally had an issue generating my scaffold at first but that was because I had been using date as a column name and didn't realize it was a reserved word. After changing the column name to date_of_encounter I was able to generate my scaffold.
 
-#### POST /sign-up
+### **Future Updates:**
 
-Request:
+For future updates, I would like to add an option for a user to click a button and see only their encounters as opposed to everyone's encounters. For the original requirements of the project I had to pick either showing all resources or showing all of the user's resources. I figured that it would be more fun to see everyone's encounters than just your own so I ended up going with that choice, but I would eventually like to do both and I do not think it would be too hard.
 
-```sh
-curl http://localhost:4741/sign-up \
-  --include \
-  --request POST \
-  --header "Content-Type: application/json" \
-  --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
-    }
-  }'
-```
+I would also like to have a way for a user to upload a picture or a video when creating an encounter, although I'm not sure if there's more to that than I think there is. I will have to look more into that, but hopefully that will be an option in V2!
 
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-up.sh
-```
+### **Original Wireframe Sketch:**
 
-Response:
-
-```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-
-{
-  "user": {
-    "id": 1,
-    "email": "ava@bob.com"
-  }
-}
-```
-
-#### POST /sign-in
-
-Request:
-
-```sh
-curl http://localhost:4741/sign-in \
-  --include \
-  --request POST \
-  --header "Content-Type: application/json" \
-  --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'"
-    }
-  }'
-```
-
-```sh
-EMAIL=ava@bob.com PASSWORD=hannah curl-scripts/auth/sign-in.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-  "user": {
-    "id": 1,
-    "email": "ava@bob.com",
-    "token": "BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f"
-  }
-}
-```
-
-#### PATCH /change-password
-
-Request:
-
-```sh
-curl --include --request PATCH "http://localhost:4741/change-password" \
-  --header "Authorization: Token token=$TOKEN" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "passwords": {
-      "old": "'"${OLDPW}"'",
-      "new": "'"${NEWPW}"'"
-    }
-  }'
-```
-
-```sh
-OLDPW='hannah' NEWPW='elle' TOKEN='BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f' sh curl-scripts/auth/change-password.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 204 No Content
-```
-
-#### DELETE /sign-out
-
-Request:
-
-```sh
-curl http://localhost:4741/sign-out \
-  --include \
-  --request DELETE \
-  --header "Authorization: Token token=$TOKEN"
-```
-
-```sh
-TOKEN='BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f' sh curl-scripts/auth/sign-out.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 204 No Content
-```
-
-### Keeping your database up to date
-
-Remember, creating and applying [migrations](https://edgeguides.rubyonrails.org/active_record_migrations.html#creating-a-migration) are two different things. After you create a migration (one of those files that lives in `db/migrate/`), you need to apply it to each database using `bin/rails db:migrate` (local) or `heroku run rails db:migrate` (production).
-
-### Rolling Back a Database Migration
-
-Sometimes you need to revert a migration that you already applied. There are many ways to revert your database to a previous state, and one of the most common is simply rolling back (reverting) the last migration that you ran. Read more in the [Rails Guide](https://edgeguides.rubyonrails.org/active_record_migrations.html#rolling-back)
-
-### Reset Database without dropping
-
-If you don't want to completely [reset the database](https://edgeguides.rubyonrails.org/active_record_migrations.html#resetting-the-database) (maybe you have data you want to preserve?), you have other, less destructive options. One is rolling back a specific migration by specifying the `VERSION` that the database should revert to. Ask a consultant if you need assistance, as **database commands like these are non-reversable.**
-
-To rerun _all_ migrations, starting from `VERSION=0`, you would do:
-
-
-```sh
-bin/rails db:migrate VERSION=0
-bin/rails db:migrate db:seed db:examples
-```
-
-To run this command (and others like this) on Heroku, just append `heroku run` before the `rails` command.
-
-
-
-## Additional Resources
-- [rails-heroku-setup-guide](https://git.generalassemb.ly/ga-wdi-boston/rails-heroku-setup-guide)
-- [Rails Guides: API-only app](http://guides.rubyonrails.org/api_app.html)
-- [Building a JSON API with Rails 5](https://blog.codeship.com/building-a-json-api-with-rails-5/)
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+![Original Entity Relation Diagram](https://imgur.com/prjNGOF)
