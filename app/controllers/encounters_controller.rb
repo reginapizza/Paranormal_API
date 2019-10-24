@@ -10,6 +10,13 @@ class EncountersController < ProtectedController
     render json: @encounters
   end
 
+  # GET /encounters
+  def index_my
+    @encounters = current_user.encounters
+
+    render json: @encounters
+  end
+
   # GET /encounters/1
   def show
     render json: Encounter.find(params[:id])
