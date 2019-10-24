@@ -54,4 +54,4 @@ I would also like to have a way for a user to upload a picture or a video when c
 
 ### **Original Wireframe Sketch:**
 
-![Original Entity Relation Diagram](https://imgur.com/prjNGOF)
+![Original Entity Relation Diagram](https://i.imgur.com/prjNGOF.jpg)
