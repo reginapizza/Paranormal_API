@@ -52,6 +52,8 @@ For future updates, I would like to add an option for a user to click a button a
 
 I would also like to have a way for a user to upload a picture or a video when creating an encounter, although I'm not sure if there's more to that than I think there is. I will have to look more into that, but hopefully that will be an option in V2!
 
-### **Original Wireframe Sketch:**
+### **Original ERD:**
+
+Note: the relationship between entities and the entity types was originally supposed to be a one to many relationship, but I decided to just include entity types within Entities since all of the keys would be the same for all entity types.
 
 ![Original Entity Relation Diagram](https://i.imgur.com/prjNGOF.jpg)
