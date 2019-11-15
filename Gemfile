@@ -7,7 +7,7 @@ gem 'active_model_serializers', '~> 0.10.6'
 gem 'bcrypt', '~> 3.1.11'
 gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.11.2'
-gem 'rack-cors', '~> 1.0.2', require: 'rack/cors'
+gem 'rack-cors', '~> 1.0.5', require: 'rack/cors'
 gem 'rails', '~> 5.2.3'
 
 group :development, :test do
