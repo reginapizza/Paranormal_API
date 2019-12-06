@@ -6,7 +6,7 @@ ruby '2.6.3'
 gem 'active_model_serializers', '~> 0.10.6'
 gem 'bcrypt', '~> 3.1.11'
 gem 'pg', '~> 0.21'
-gem 'puma', '~> 3.11.2'
+gem 'puma', '~> 3.12.2'
 gem 'rack-cors', '~> 1.0.2', require: 'rack/cors'
 gem 'rails', '~> 5.2.3'
 
